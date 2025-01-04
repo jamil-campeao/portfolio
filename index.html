@@ -248,6 +248,61 @@
             background-color: #FFD700;
         }
 
+        /* Estilos para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .modal img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .modal .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #FFF;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal .navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .modal .prev {
+            left: 10px;
+        }
+
+        .modal .next {
+            right: 10px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -283,7 +338,7 @@
         <div id="skills" class="skills">
             <h2>Skills</h2>
             <div class="skills-icons">
-                <p><img src="images/java.png" alt="Java">Java</p>
+                <p><img src="images/java.png" alt="Java" >Java</p>
                 <p><img src="images/delphi.png" alt="Delphi">Delphi(Pascal)</p>
                 <p><img src="images/python.png" alt="Python">Python</p>
                 <p><img src="images/javascript.png" alt="JavaScript">JavaScript</p>
@@ -299,18 +354,45 @@
             <h2>Portfólio</h2>
 
             <div class="portfolio-item">
-                <img src="images/imagensProjetos/SistemaPedidoVenda/SistemaPedidoVenda1.png" alt="Imagem Sistema Pedido de Venda">
+                <img 
+                src="images/imagensProjetos/SistemaPedidoVenda/SistemaPedidoVenda1.png" 
+                alt="Imagem Sistema Pedido de Venda"
+                data-images="images/imagensProjetos/SistemaPedidoVenda/SistemaPedidoVenda1.png,images/imagensProjetos/SistemaPedidoVenda/SistemaPedidoVenda2.png,images/imagensProjetos/SistemaPedidoVenda/SistemaPedidoVenda3.png">
                 <div class="details">
                     <h3>Sistema de Pedidos de Venda</h3>
                     <p>Um sistema de gerenciamento de pedidos de venda desenvolvido em Delphi, utilizando conceitos de POO, MVC, e práticas de Clean Code, com integração ao banco de dados MySQL.</p>
                     <div class="buttons">
-                        <a href="#" target="_blank">Ver Projeto</a>
                         <a href="https://github.com/jamil-campeao/SistemaPedidosVenda" target="_blank">&lt; Repositório /&gt;</a>
                     </div>
                 </div>
             </div>
 
+            <div class="portfolio-item">
+                <img 
+                src="images/imagensProjetos/JogoXadrez/JavaChessGame.png" 
+                alt="Imagem Jogo de Xadrez"
+                data-images="images/imagensProjetos/JogoXadrez/JavaChessGame.png,images/imagensProjetos/JogoXadrez/JavaChessGame2.png">
+                <div class="details">
+                    <h3>Jogo de Xadrez</h3>
+                    <p>Um jogo de xadrez completo desenvolvido em Java, com suporte para partida entre dois jogadores. Este projeto implementa as regras oficiais do xadrez, incluindo movimentos especiais como Roque, En Passant e Promoção.</p>
+                    <div class="buttons">
+                        <a href="https://github.com/jamil-campeao/jogo-de-xadrez-java" target="_blank">&lt; Repositório /&gt;</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        </div>
+
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="modal-content">
+                <span class="navigation prev">&#10094;</span>
+                <img id="modalImage" src="" alt="">
+                <span class="navigation next">&#10095;</span>
+            </div>
+        </div>
+        
 
         <!-- Contato -->
         <div id="contato" class="contact">
@@ -330,4 +412,60 @@
         </div>
     </div>
 </body>
+
+<script>
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const images = document.querySelectorAll(".portfolio-item img");
+const closeModal = document.querySelector(".modal .close");
+const prevButton = document.querySelector(".modal .prev");
+const nextButton = document.querySelector(".modal .next");
+let currentIndex = 0;
+let currentImages = [];
+
+// Função para abrir o modal com as imagens relacionadas
+function openModal(index, relatedImages) {
+    modal.style.display = "block";
+    currentImages = relatedImages.split(",");
+    currentIndex = index;
+    modalImage.src = currentImages[currentIndex];
+}
+
+// Fecho o modal
+function closeModalHandler() {
+    modal.style.display = "none";
+}
+
+// Mostro a imagem anterior
+function showPrevImage() {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentImages.length - 1;
+    modalImage.src = currentImages[currentIndex];
+}
+
+// Mostro a próxima imagem
+function showNextImage() {
+    currentIndex = (currentIndex < currentImages.length - 1) ? currentIndex + 1 : 0;
+    modalImage.src = currentImages[currentIndex];
+}
+
+// Adiciono evento de clique para cada imagem
+images.forEach((image) => {
+    image.addEventListener("click", () => {
+        const relatedImages = image.getAttribute("data-images");
+        openModal(0, relatedImages);
+    });
+});
+
+closeModal.addEventListener("click", closeModalHandler);
+prevButton.addEventListener("click", showPrevImage);
+nextButton.addEventListener("click", showNextImage);
+
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        closeModalHandler();
+    }
+});
+
+</script>
+
 </html>
