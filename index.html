@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Jamil Luiz Campeão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1E1E1E;
+            color: #FFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            background-color: #292929;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #FFF;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #FFA500;
+            border-radius: 5px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        .header img {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .header button {
+            background-color: #FFA500;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .about {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #292929;
+            border-radius: 10px;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #292929;
+            border-radius: 10px;
+        }
+
+        .skills h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .skills-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skills-icons p {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+        }
+
+        .skills-icons img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #292929;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 1rem;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .contact p img {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+            text-align: left;
+        }
+
+        .contact img {
+            margin: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .contact .social-icons {
+            position: absolute;
+            top: 90%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+        }
+
+        .contact .social-icons img {
+            margin: 5px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .contact a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact a:hover {
+            color: #FFA500; /* Cor de destaque ao passar o mouse */
+        }
+
+        .portfolio {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #292929;
+            border-radius: 10px;
+        }
+
+        .portfolio h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .portfolio-item img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .portfolio-item .details {
+            flex: 1;
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .portfolio-item .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .portfolio-item .buttons a {
+            text-decoration: none;
+            background-color: #FFA500;
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .portfolio-item .buttons a:hover {
+            background-color: #FFD700;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div id="home" class="header">
+            <h1>Olá, sou Jamil Luiz Campeão</h1>
+            <h2>Desenvolvedor Back-End</h2>
+            <img src="images/jamil.png" alt="Foto de Jamil">
+            <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5511993584147" target="_blank"><button>Contate-me</button></a>
+        </div>
+
+        <!-- Sobre Mim -->
+        <div id="sobre" class="about">
+            <h2>Sobre Mim</h2>
+            <p>
+                Olá, sou Jamil, tenho 21 anos e sou um desenvolvedor Back-End apaixonado por tecnologia e inovação. Atualmente, estou cursando Bacharelado em Sistemas de Informação na Universidade Federal de Santa Maria. Com mais de 3 anos de experiência, tenho foco em Delphi, Java, JavaScript, Node.js e bancos de dados como SQL Server, MySQL e Firebird, trazendo uma abordagem estratégica para integração e otimização de sistemas.
+            </p>
+            <p>
+                Minha trajetória começou no suporte técnico, onde desenvolvi habilidades únicas para resolver problemas e construir relações sólidas com clientes. Hoje, busco contribuir para projetos desafiadores e inovadores, aplicando minhas competências em desenvolvimento de software. Sempre em evolução, meu objetivo é aprender continuamente e transformar ideias em resultados concretos.
+            </p>
+        </div>
+
+        <!-- Skills -->
+        <div id="skills" class="skills">
+            <h2>Skills</h2>
+            <div class="skills-icons">
+                <p><img src="images/java.png" alt="Java">Java</p>
+                <p><img src="images/delphi.png" alt="Delphi">Delphi(Pascal)</p>
+                <p><img src="images/python.png" alt="Python">Python</p>
+                <p><img src="images/javascript.png" alt="JavaScript">JavaScript</p>
+                <p><img src="images/git.png" alt="Git">Git</p>
+                <p><img src="images/sqlserver.png" alt="SQL Server">SQL Server</p>
+                <p><img src="images/mysql.png" alt="MySQL">MySQL</p>
+                <p><img src="images/firebird.png" alt="Firebird">Firebird</p>
+            </div>
+        </div>
+
+        <!-- Portfólio -->
+        <div id="portfolio" class="portfolio">
+            <h2>Portfólio</h2>
+
+            <div class="portfolio-item">
+                <img src="images/imagensProjetos/SistemaPedidoVenda/SistemaPedidoVenda1.png" alt="Imagem Sistema Pedido de Venda">
+                <div class="details">
+                    <h3>Sistema de Pedidos de Venda</h3>
+                    <p>Um sistema de gerenciamento de pedidos de venda desenvolvido em Delphi, utilizando conceitos de POO, MVC, e práticas de Clean Code, com integração ao banco de dados MySQL.</p>
+                    <div class="buttons">
+                        <a href="#" target="_blank">Ver Projeto</a>
+                        <a href="https://github.com/jamil-campeao/SistemaPedidosVenda" target="_blank">&lt; Repositório /&gt;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contato -->
+        <div id="contato" class="contact">
+            <h2>Contato</h2>
+            <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5511993584147" target="_blank"><p><img src="images/whatsapp.png" alt="WhatsApp">(11) 99358-4147</p></a>
+            <a href="mailto:jamilcampeao@gmail.com.br" target="_blank"><p><img src="images/email.png" alt="Email"> jamilcampeao@gmail.com</p></a>
+            <p><img src="images/localizacao.png" alt="Localização"> Frederico Westphalen - RS - Brasil</p>
+            <div class="social-icons">
+                <a href="https://github.com/jamil-campeao" target="_blank"><img src="images/github.png" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/jamilcampeao/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2025 Jamil Luiz Campeão. Todos os direitos reservados.
+        </div>
+    </div>
+</body>
+</html>
