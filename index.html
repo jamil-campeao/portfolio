@@ -297,6 +297,26 @@
             right: 10px;
         }
 
+        .more-projects {
+    text-align: center;
+    margin-top: 20px;
+        }
+
+    .btn-more-projects {
+        display: inline-block;
+        background-color: #FF9900;
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-more-projects:hover {
+        background-color: #CC7A00;
+    }
+
         /* Estilo para dispositivos móveis */
     @media (max-width: 768px) {
     .navbar {
@@ -372,6 +392,7 @@
         position: static;
         margin-top: 20px;
     }
+
 }
 
     </style>
@@ -451,6 +472,39 @@
                     </div>
                 </div>
             </div>
+
+            <div class="portfolio-item">
+                <img 
+                src="images/imagensProjetos/Helter-Books/PaginaInicialHelterBooks.png" 
+                alt="Imagem Site Helter Books"
+                data-images="images/imagensProjetos/Helter-Books/PaginaInicialHelterBooks.png, images/imagensProjetos/Helter-Books/PaginaInicialHelterBooks-InsercaoLivro.png, 
+                images/imagensProjetos/Helter-Books/PaginaFavoritos.png, images/imagensProjetos/Helter-Books/PaginaFavoritos-delecao.png, 
+                images/imagensProjetos/Helter-Books/PaginaCategorias.png, images/imagensProjetos/Helter-Books/PaginaSobre.png">
+                <div class="details">
+                    <h3>Helter Books - Site de Livros</h3>
+                    <p>
+                        Projeto fullstack que permite listar, gerenciar e favoritar livros, desenvolvido com 
+                        <strong>React</strong> no front-end e <strong>Node.js</strong> no back-end. O sistema é 
+                        responsivo, utiliza <strong>Firebase Firestore</strong> para o armazenamento e está hospedado no 
+                        <strong>Netlify Functions</strong>.
+                    </p>
+                    <ul>
+                        <li>Listagem de livros e categorias</li>
+                        <li>Gerenciamento de livros favoritos</li>
+                        <li>Operações CRUD (GET, POST, PATCH, DELETE)</li>
+                    </ul>
+                    <div class="buttons">
+                        <a href="https://helterbooks.netlify.app/" target="_blank" class="btn-project">
+                            &lt; Ver Projeto &gt;
+                        </a>
+                        <a href="https://github.com/jamil-campeao/ReactProject" target="_blank" class="btn-repo">
+                            &lt; Repositório Front-End /&gt;
+                        </a>
+                        <a href="https://github.com/jamil-campeao/projeto-reactServidor" target="_blank" class="btn-repo">
+                            &lt; Repositório Back-End /&gt;
+                        </a>
+                    </div>
+                </div>  
         </div>
 
         </div>
@@ -463,7 +517,11 @@
                 <span class="navigation next">&#10095;</span>
             </div>
         </div>
-        
+
+        <!-- Botão Ver Mais Projetos -->
+        <div class="more-projects">
+            <a href="https://github.com/jamil-campeao" class="btn-more-projects">Ver Mais Projetos</a>
+        </div>
 
         <!-- Contato -->
         <div id="contato" class="contact">
